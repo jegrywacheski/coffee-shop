@@ -1,20 +1,7 @@
 export type User = {
     id: string,
     name: string,
-    email: string,
-};
-
-export type Customer = {
-    id: string,
-    user: User,
-    name: string,
-};
-
-export type Employee = {
-    id: string,
-    user: User,
-    name: string,
-    role: string,
+    type: 'customer' | 'employee',
 };
 
 export type Product = {
@@ -24,9 +11,17 @@ export type Product = {
     quantity: number,
 };
   
-export type OrderItem = {
-    base: Product | null,
-    fill: Product | null,
-    sweetener: Product | null,
-    topping: Product | null,
+export type Order = {
+    id: string,
+    customer_id: string,
+    employee_id?: string,
+    notes: string,
+    total: number,
+    status: 'pending' | 'completed' | 'cancelled',
+};
+
+export type OrderProduct = {
+    order_id: string,
+    product_id: string,
+    quantity: number,
 };
