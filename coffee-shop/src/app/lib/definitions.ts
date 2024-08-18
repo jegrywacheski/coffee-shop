@@ -5,23 +5,18 @@ export type User = {
 };
 
 export type Product = {
-    category: 'base' | 'fill' | 'sweetener' | 'topping',
     name: string,
     price: number,
     quantity: number,
+    unit: string,
 };
   
 export type Order = {
     id: string,
     customer_id: string,
     employee_id?: string,
+    order: Product[],
     notes: string,
     total: number,
     status: 'pending' | 'completed' | 'cancelled',
-};
-
-export type OrderProduct = {
-    order_id: string,
-    product_id: string,
-    quantity: number,
 };
